@@ -4,7 +4,7 @@
 /node_modules
 /.pnp
 .pnp.js
-/bisque-dove/node_modules
+/bisque-dove
 
 # testing
 /coverage

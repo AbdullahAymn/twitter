@@ -1,10 +1,11 @@
 import React, { useContext, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Cookies from "js-cookie";
 import { PhotoIcon, GifIcon, FaceSmileIcon } from "@heroicons/react/24/outline";
 import Link from "next/link";
 import { data } from "../../utils/Store";
 import { toast } from "react-toastify";
+import { inActions } from "../../utils/ReStore";
 
 export default function TweetBox() {
   const isIn = useSelector((state) => state.loggedin);
@@ -17,7 +18,7 @@ export default function TweetBox() {
 
   const user = useContext(data).userName;
   const refre = useContext(data);
-
+  const dispatch = useDispatch()
   const postTweet = async () => {
     const tweetBody = {
       text: tweet,
@@ -38,8 +39,10 @@ export default function TweetBox() {
     
 
     
+      await dispatch(inActions.refresh())
 
-    await refre.setRefreh(!refre.refresh);
+      await refre.setRefreh(!refre.refresh);
+    
 
     toast("tweet added 🚀");
 

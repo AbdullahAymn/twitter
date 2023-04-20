@@ -11,6 +11,7 @@ const isIn = !!Cookies.get("token") && !!Cookies.get("id");
 
 let intialdata = {
   loggedin: isIn,
+  refresh : false
 };
 
 const login = createSlice({
@@ -27,6 +28,9 @@ const login = createSlice({
           Cookies.remove('token')
           Cookies.remove('id')
  
+    },
+    refresh(state) {
+        state.refresh = !state.refresh
       }
   },
 });

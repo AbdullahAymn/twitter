@@ -20,6 +20,7 @@ export default function StoreProvider(props) {
   const [userName, setUserName] = useState("");
 
   const loggedIn = useSelector((state) => state.loggedin);
+  const ref = useSelector((state) => state.refresh);
 
   useEffect(() => {
     // Get tweets
@@ -43,7 +44,7 @@ export default function StoreProvider(props) {
         .then((data) => setUserName(data.users[0].displayName));
     }
     
-  }, [refresh, loggedIn]);
+  }, [refresh, loggedIn ,ref]);
 
   return (
     <div>

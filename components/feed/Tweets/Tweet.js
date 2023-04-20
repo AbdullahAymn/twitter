@@ -3,7 +3,7 @@ import CommentOfTweet from "./CommentOfTweet";
 import { client } from "../../../sanity";
 import imageUrlBuilder from "@sanity/image-url";
 import Cookies from "js-cookie";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   ChatBubbleOvalLeftEllipsisIcon,
   ShareIcon,
@@ -12,6 +12,7 @@ import {
 import { data } from "../../../utils/Store";
 import { toast } from "react-toastify";
 import Link from "next/link";
+import { inActions } from "../../../utils/ReStore";
 
 export default function Tweet(props) {
   const [cliked, setClicked] = useState(false);
@@ -24,12 +25,14 @@ export default function Tweet(props) {
 
   //Getting comments
   const ctx = useContext(data);
+  const ref = useSelector((state) => state.refresh);
+  const dispatch = useDispatch();
   const [comments, setComments] = useState([]);
   useEffect(() => {
     fetch(`/api/getComment?tweetId=${tweet._id}`)
       .then((res) => res.json())
       .then((data) => setComments(data.tweetscomment));
-  }, [ctx.refresh]);
+  }, [ctx.refresh, ref]);
 
   const commentsShow = comments.map((commet) => (
     <CommentOfTweet key={commet._id} comment={commet} />
@@ -52,18 +55,18 @@ export default function Tweet(props) {
       tweetId: tweet._id,
     };
 
-    const result =
-      await fetch(`/api/addCommet`, {
-        body: JSON.stringify(comment),
-        method: "POST",
-      });
-      const json = await result.json();
+    const result = await fetch(`/api/addCommet`, {
+      body: JSON.stringify(comment),
+      method: "POST",
+    });
+    const json = await result.json();
+    
+    await dispatch(inActions.refresh());
+    await ctx.setRefreh(!ctx.refresh);
+    await setOpenCommet(false);
+    await setCommentContent();
 
-    await ctx.setRefreh(!ctx.refresh)
-    await setOpenCommet(false)
-    await setCommentContent()
-
-    toast('comment added 🚀')
+    toast("comment added 🚀");
   };
 
   return (
