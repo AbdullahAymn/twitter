@@ -1,0 +1,44 @@
+{
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.3.0",
+    "@fortawesome/free-solid-svg-icons": "^6.3.0",
+    "@fortawesome/react-fontawesome": "^0.2.0",
+    "@headlessui/react": "^1.7.13",
+    "@heroicons/react": "^2.0.17",
+    "@paypal/react-paypal-js": "^7.8.2",
+    "@portabletext/react": "^2.0.2",
+    "@reduxjs/toolkit": "^1.9.3",
+    "@sanity/cli": "^3.8.3",
+    "@sanity/image-url": "^1.0.2",
+    "bcryptjs": "^2.4.3",
+    "bootstrap": "^5.2.3",
+    "js-cookie": "^3.0.1",
+    "js-cookies": "^1.0.4",
+    "mongoose": "^7.0.1",
+    "next": "latest",
+    "next-auth": "^4.20.1",
+    "next-sanity": "^4.1.7",
+    "react": "18.2.0",
+    "react-bootstrap": "^2.7.2",
+    "react-dom": "18.2.0",
+    "react-hook-form": "^7.43.5",
+    "react-redux": "^8.0.5",
+    "react-responsive-carousel": "^3.2.23",
+    "react-toastify": "^9.1.2",
+    "react-twitter-embed": "^4.0.4",
+    "typescript": "^5.0.4"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.13",
+    "postcss": "^8.4.21",
+    "tailwindcss": "^3.2.7",
+    "webpack": "^5.79.0",
+    "webpack-cli": "^5.0.1"
+  }
+}
