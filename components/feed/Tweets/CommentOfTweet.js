@@ -18,15 +18,15 @@ export default function CommentOfTweet(props) {
           src={comment.profileImg}
         />
         <div className="flex flex-row items-center space-x-2">
-          <h1 className="text-xs text-gray-500 md:text-lg">
+          <h1 className="text-md text-gray-500 md:text-lg">
             {comment.userName}
           </h1>
-          <h4 className=" text-gray-400 text-xs">@{comment.userName} </h4>
+          <h4 className=" text-gray-400 text-sm">@{comment.userName} </h4>
         </div>
       </div>
       <div className="w-full flex flex-col">
         {comment.comment && (
-          <h1 className="text-lg text-gray-600 font-sans px-12 mb-3">{comment.comment}</h1>
+          <h1 className="text-md text-gray-600 font-sans pl-12 mb-3">{comment.comment}</h1>
         )}
       </div>
     </div>

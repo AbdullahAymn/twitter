@@ -25,12 +25,12 @@ function Notification() {
       <div key={index} className=" flex items-center">
         <div>
           <i
-            className={`cursor-pointer text-twitter text-3xl p-5 ${e.icon} `}
+            className={`cursor-pointer text-twitter text-lg md:text-3xl px-4 py-2 ${e.icon} `}
           ></i>
         </div>
-        <div className="py-5 cursor-pointer">
-          <h1 className="text-xl font-sans font-bold">{e.name}</h1>
-          <h3 className=" text-gray-800  ">{e.text} </h3>
+        <div className="py-2 cursor-pointer">
+          <h1 className=" text-md md:text-xl font-sans font-bold">{e.name}</h1>
+          <h3 className=" text-gray-800 text-sm md:text-lg  ">{e.text} </h3>
         </div>
       </div>
     );
